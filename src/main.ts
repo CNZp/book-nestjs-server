@@ -9,7 +9,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('bapi');
 
   const httpAdapter = app.get(HttpAdapterHost);
   // 全局Filter只能有一个
@@ -22,7 +22,7 @@ async function bootstrap() {
       // whitelist: true,
     }),
   );
-  await app.listen(3000);
+  await app.listen(3001);
   if (module.hot) {
     module.hot.accept();
     module.hot.dispose(() => app.close());
